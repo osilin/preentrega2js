@@ -13,8 +13,8 @@ const productos = [{id: 111, nombre: "Fuente", precio: 15000},
 
 
 
-function comprarProducto (cod) {
-    let resultado = productos.find ( (producto) => producto.id === parseInt(cod) )
+function comprarProducto (nombre) {
+    let resultado = productos.find ( (producto) => producto.nombre.toLowerCase() === nombre.toLowerCase() )
     return resultado
 }
 
@@ -25,8 +25,8 @@ function finalizarOperacion () {
 }
 
 function operar () {
-    let cod = prompt ("Ingresa el codigo del producto:")
-    let prodObt = comprarProducto (cod)
+    let nombreProducto = prompt ("Ingresa el nombre del producto:")
+    let prodObt = comprarProducto (nombreProducto)
     if (prodObt !== undefined) {
         carrito.push (prodObt)
         alert (prodObt.nombre.toLocaleLowerCase() + " se añadió al carrito")
@@ -39,3 +39,4 @@ function operar () {
         }
     }
 }
+
